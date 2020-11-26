@@ -1,4 +1,4 @@
 ---
-- hosts: localhost
+- hosts: tower-source
   roles:
   - tower-backup
