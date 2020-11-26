@@ -11,5 +11,5 @@
     dest: "{{ web_dir }}"
 
 - name: "Verify that jobs are not running on the destination tower"
-  command: "while [ $(curl -k -X GET --user {{ tower_username }}:{{ tower_password }} https://10.35.97.144/api/v2/jobs/?status=running -L | jq '.count') -ne 0 ]; do sleep 1; echo 'A job is running - Re-checking'; done"
+  shell: "while [ $(curl -k -X GET --user {{ tower_username }}:{{ tower_password }} https://10.35.97.144/api/v2/jobs/?status=running -L | jq '.count') -ne 0 ]; do sleep 1; echo 'A job is running - Re-checking'; done"
 
