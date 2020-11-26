@@ -1,0 +1,4 @@
+---
+- hosts: tower-dest.ocp.lab
+  roles:
+  - tower-restore
