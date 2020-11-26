@@ -1,6 +1,6 @@
 ---
 - name: "execute the Ansible Tower backup"
-  command: "ls -l"
+  command: "./setup.sh -b"
   args:
     chdir: /opt/ansible-tower-setup-3.7.3-1
 
