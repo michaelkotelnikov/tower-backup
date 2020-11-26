@@ -1,6 +1,12 @@
 ---
-- name: "execute the Ansible Tower backup"
+- name: "Execute the Ansible Tower backup"
   command: "./setup.sh -b"
   args:
     chdir: "{{ ansible_tower_directory }}"
+
+- name: "Copy backup file to a remote file server"
+  copy:
+    remote_src: yes
+    src: "{{ ansible_tower_directory }}/tower-backup-latest.tar.gz"
+    dest: "{{ web_dir }}"
 
