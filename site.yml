@@ -1,4 +1,4 @@
 ---
-- hosts: tower-source
+- hosts: tower-source.ocp.lab
   roles:
   - tower-backup
