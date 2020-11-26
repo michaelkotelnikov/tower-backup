@@ -8,3 +8,5 @@
   shell: "./setup.sh -r"
   args:
     chdir: "{{ ansible_tower_directory }}"
+  async: 45
+  poll: 0
