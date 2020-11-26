@@ -2,5 +2,5 @@
 - name: "execute the Ansible Tower backup"
   command: "ls -l"
   args:
-    chdir: /var/lib/awx/
+    chdir: /opt/ansible-tower-setup-3.7.3-1
 
