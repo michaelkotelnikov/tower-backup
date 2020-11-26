@@ -1,0 +1,4 @@
+---
+backup_web_path: "http://10.35.97.144:8080/ansible-backup/tower-backup-latest.tar.gz"
+ansible_tower_directory: "/opt/ansible-tower-setup-3.7.3-1"
+

@@ -1,0 +1,5 @@
+---
+- name: "Download the restore file from the web"
+  get_url:
+    url: "{{ backup_web_path }}"
+    dest: "{{ ansible_tower_directory }}"
