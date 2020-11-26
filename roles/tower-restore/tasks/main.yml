@@ -3,3 +3,8 @@
   get_url:
     url: "{{ backup_web_path }}"
     dest: "{{ ansible_tower_directory }}"
+
+- name: "Restore the Tower configuration using the imported file"
+  shell: "./setup.sh -r"
+  args:
+    chdir: "{{ ansible_tower_directory }}"
