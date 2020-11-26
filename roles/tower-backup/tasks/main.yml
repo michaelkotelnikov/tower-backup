@@ -2,5 +2,5 @@
 - name: "execute the Ansible Tower backup"
   command: "./setup.sh -b"
   args:
-    chdir: {{ ansible_tower_directory }}
+    chdir: "{{ ansible_tower_directory }}"
 
