@@ -20,5 +20,4 @@
     user: "{{ tower_username }}"
     password: "{{ tower_password }}"
     status_code: [201, 202]
-  loop:
-    - slave_towers
+  loop: "{{ slave_towers }}"
