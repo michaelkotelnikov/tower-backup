@@ -18,13 +18,6 @@
 - name: "Verify that jobs are not running on the destination tower"
   shell: "while [ $(curl -k -X GET --user {{ tower_username }}:{{ tower_password }} https://127.0.0.1/api/v2/jobs/?status=running -L | jq '.count') -ne 1 ]; do sleep 1; echo 'A job is running - Re-checking'; done"
 
-  # - name: "Restore the Tower configuration using the imported file"
-  #   shell: "echo 'sh {{ ansible_tower_directory }}/setup.sh -r' | at now + 1 minute"
-  #   args:
-  #     chdir: "{{ ansible_tower_directory }}"
-  #   async: 45
-  #   poll: 0
-
 - name: "Schedule the restore to run in 1 minute"
   at:
     command: "sh {{ ansible_tower_directory }}/setup.sh -r"
