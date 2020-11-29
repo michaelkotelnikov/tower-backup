@@ -8,7 +8,7 @@
   shell: "while [ $(curl -k -X GET --user {{ tower_username }}:{{ tower_password }} https://127.0.0.1/api/v2/jobs/?status=running -L | jq '.count') -ne 1 ]; do sleep 1; echo 'A job is running - Re-checking'; done"
 
 - name: "Restore the Tower configuration using the imported file"
-  shell: "./restore-tower.sh"
+  shell: "echo 'sh /opt/ansible-tower-setup-3.7.3-1/setup.sh -r' | at now + 1 minute"
   args:
     chdir: "{{ ansible_tower_directory }}"
   async: 45
