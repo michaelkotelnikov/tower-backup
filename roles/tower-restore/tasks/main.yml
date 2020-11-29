@@ -5,7 +5,7 @@
     dest: "{{ ansible_tower_directory }}"
 
 - name: "Restore the Tower configuration using the imported file"
-  shell: "./setup.sh -r"
+  shell: "./restore-tower.sh"
   args:
     chdir: "{{ ansible_tower_directory }}"
   async: 45
