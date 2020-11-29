@@ -4,6 +4,9 @@
     url: "{{ backup_web_path }}"
     dest: "{{ ansible_tower_directory }}"
 
+- name: "Verify that jobs are not running on the destination tower"
+  shell: "while [ $(curl -k -X GET --user {{ tower_username }}:{{ tower_password }} https://127.0.0.1/api/v2/jobs/?status=running -L | jq '.count') -ne 1 ]; do sleep 1; echo 'A job is running - Re-checking'; done"
+
 - name: "Restore the Tower configuration using the imported file"
   shell: "./restore-tower.sh"
   args:

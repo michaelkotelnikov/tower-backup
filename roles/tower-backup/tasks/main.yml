@@ -10,12 +10,9 @@
     src: "{{ ansible_tower_directory }}/tower-backup-latest.tar.gz"
     dest: "{{ web_dir }}"
 
-- name: "Verify that jobs are not running on the destination tower"
-  shell: "while [ $(curl -k -X GET --user {{ tower_username }}:{{ tower_password }} https://10.35.97.152/api/v2/jobs/?status=running -L | jq '.count') -ne 0 ]; do sleep 1; echo 'A job is running - Re-checking'; done"
-
 - name: "Run the restore process from the second tower"
   uri:
-    url: "https://10.35.97.152/api/v2/job_templates/restore-tower/launch/"
+    url: "https://{{ item }}/api/v2/job_templates/restore-tower/launch/"
     validate_certs: no
     method: POST
     return_content: yes
@@ -23,3 +20,5 @@
     user: "{{ tower_username }}"
     password: "{{ tower_password }}"
     status_code: [201, 202]
+  loop:
+    - slave_towers

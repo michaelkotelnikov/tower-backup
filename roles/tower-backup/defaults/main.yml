@@ -1,3 +1,5 @@
 ---
 ansible_tower_directory: "/opt/ansible-tower-setup-3.7.3-1"
 web_dir: "/var/www/html/ansible-backup"
+slave_towers:
+  - "10.35.97.152"
